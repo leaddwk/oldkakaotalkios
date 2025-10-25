@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>문서 제목 — 목차 예제</title>
+    <style>
+      /* 기본 스타일 */
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 24px;
+        max-width: 900px;
+      }
+  
+      /* 목차 박스 (위키 스타일) */
+      .toc {
+        border: 1px solid #d0d7de;
+        background: #f8f9fa;
+        padding: 12px 14px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+      .toc h2 {
+        margin: 0 0 8px 0;
+        font-size: 16px;
+      }
+      .toc ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+      }
+      .toc li {
+        margin: 6px 0;
+      }
+      .toc a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .toc a:hover { text-decoration: underline; }
+  
+      /* 섹션 스타일 */
+      section {
+        margin: 36px 0;
+        padding-top: 6px;
+      }
+      section h3 {
+        margin: 0 0 8px 0;
+        font-size: 20px;
+      }
+  
+      /* 작은 '목차로' 링크 */
+      .back-to-toc {
+        display: inline-block;
+        margin-top: 12px;
+        font-size: 13px;
+        color: #6e7191;
+        text-decoration: none;
+      }
+      .back-to-toc:hover { text-decoration: underline; }
+  
+      /* 부드러운 스크롤 */
+      html { scroll-behavior: smooth; }
+    </style>
+  </head>
+  <body>
+    <p data-ke-size="size16">&lt;!doctype html&gt;</p>
+    <p data-ke-size="size16">&nbsp;</p>
+    <h1>문서 제목</h1>
+    <!-- 목차 -->
+    <nav class="toc" aria-label="목차">
+      <h2 data-ke-size="size26">목차</h2>
+      <ul style="list-style-type: disc;" data-ke-list-type="disc">
+        <li><a href="#introduction">1. 방식 설명과 주의사항과 준비물</a></li>
+        <li><a href="#features1">2. 준비와 정식 IPA 파일 다운로드</a>
+          <ul style="list-style-type: disc;" data-ke-list-type="disc">
+            <li style="margin-left: 12px;"><a href="#feature-a">2.1 iTunes 다운로드와 로그인</a></li>
+            <li style="margin-left: 12px;"><a href="#feature-b">2.2 Fiddler 다운로드와 기본 세팅</a></li>
+            <li style="margin-left: 12px;"><a href="#feature-c">2.3 카카오톡 옛버전 IPA 다운로드하기</a></li>
+          </ul>
+        </li>
+        <li><a href="#features2">3. Windows에서 MacOS사용하기(최신 버전의 Mac이 있으면 건너뛰세요)</a>
+          <ul style="list-style-type: disc;" data-ke-list-type="disc">
+            <li style="margin-left: 12px;"><a href="#feature-d">3.1 VMware 다운로드와 MacOS 설치 준비</a></li>
+            <li style="margin-left: 12px;"><a href="#feature-e">3.2 MacOS 다운로드와 세팅</a></li>
+          </ul>
+        </li>
+        <li><a href="#usage">4. 설치와 마무리 과정</a></li>
+        <li><a href="#references">5. 파일 다운로드</a></li>
+        <li><a href="#faq">6. 자주 묻는 질문(FAQ)</a></li>
+      </ul>
+    </nav><!-- 본문 섹션들 -->
+    <section id="introduction">
+      <h3 data-ke-size="size23">1. 방식 설명과 주의사항과 준비물</h3>
+      <p data-ke-size="size16"><b>방식 설명 및 방식의 문제점 *필독</b><br />아이폰은 앱을 받을때 기기의 Apple ID를 이용해서 Apple서버에서 미리 서명된 앱을 확인하고 Apple ID를 통해 설치합니다. IPA로 비공식 앱을 설치할 때는(Android의 APK같은 것) Apple ID를 이용해 개발자용 인증서를 발급받습니다. 애플 개발자에 유료로 등록을 하지 않으면 기본적으로 7일동안만 서명이 유지되고 이후에는 앱이 실행되지 않습니다. 그래서 필자는 이 방식이 7일 인증으로 작동되지 않을지 테스트하기 위해 7일넘게 기다리느라 늦게 글을 씁니다. 제일 먼저 최신 버전에서 미리 대화내용 백업을 해둘 예정이지만 저의 경우에는 낮은 버전에서는 불러오는게 불가능 했습니다. 그래서 아예 재설치가 아니라 설치된 상태에서 업데이트 하듯 순정 파일을 올려준다는 느낌입니다.(재설치하는 방식은 다른 블로그에 올라온 것들이 있습니다. 하지만 그 방법에는 단점이 있습니다. 대화내용을 백업한 후 불러오는 방식인데 유료 톡서랍 서비스를 이용하지 않으면 사진과 동영상이 백업이 안됩니다. 그리고 오픈채팅도 복원이 불가합니다. 무료 백업본은 14일 내에 복원하지 않으면 사라집니다.) 아래에 서술할 방식을 따라하면 사진과 동영상, 오픈채팅 및 대화내용은 유지됩니다. 단, 채팅방이 일정 이하부터는 다 읽음처리 되고 친구가 모두 사라질 수 있습니다.(처음했을때는 친구는 유지됐는데 블로그 쓰려고 두번째 할 때는 친구가 다 사라지네요) 아마도 점검모드로 파일을 검사하고 수정하는 과정에서 발생하는 것으로 보입니다만 해결방안은 찾지 못하였고 그 부분은 감안하셔야 합니다.<br /><br /><b>주의사항 *필독</b><br />이 글은 개인 기록용입니다. 데이터의 손실은 본인 책임이며 오픈 채팅방은 최신 버전이 아니면 들어가서 채팅을 칠 수 없습니다.(필자는 오픈채팅방은 컴퓨터의 최신버전 카톡을 이용하면 해결할 수 있기에 이렇게 쓰고 있습니다.<s>{사실 오픈채팅방을 안 써서...}</s>)<br />저는 3utools 등의 서드파티 프로그램을 이용한 IPA설치 방식은 사용해보지 않았습니다. 다른 툴의 사용에 대해서는 필자가 확인하지 않았으므로 질문을 남기실때 다른 툴은 답해드릴 수 없습니다.<br /><br /><b>준비물</b><br />내리려는 버전보다 상위 버전이 설치된 아이폰, 컴퓨터(본인의 Apple ID로 된 최신버전의 Macbook이 있다면 더 좋습니다.), 아이폰과 컴퓨터의 데이터 통신을 위한 케이블</p>
+    </section>
+    <section id="features1">
+      <h3 data-ke-size="size23">2. 준비와 정식 IPA 파일 다운로드</h3>
+      <section id="feature-a" aria-label="특징 A">
+        <h4 data-ke-size="size20">2.1 iTunes 다운로드와 로그인</h4>
+        <span data-ke-size="size16"><span data-ke-size="size16">우선 <a href="https://ipsw.me">ipsw.me</a>라는 ios 파일과 iTunes를 백업 따놓은 사이트에서 iTunes 옛버전을 받아준다. 12.4.3 버전을 받으면 잘못 올려둔 것인지 12.1.3.6 버전이 받아진다. 12.4 버전과 12.3 버전은 접속 오류가 뜨면서 iTunes에 내장된 Appstore가 안들어가져서 12.1.3.6을 선택했다.<br /><br /></span></span>
+        <div style="display: flex; justify-content: center; border: 2px solid; border-radius: 5px; padding: 5px;"><button onclick="location.href='https://secure-appldnld.apple.com/itunes12/031-34005-20150916-98D38F1E-5C11-11E5-A6AD-C05A6DA99CB1/iTunes6464Setup.exe'" style="border-radius: 8px; padding: 8px 14px; background-color: blue; color: white; border: none; margin: 10px; display: flex; justify-content: center;"><img style="width: 15px; height: 15px;" src="https://ipsw.me/assets/brand/ipsw_logo_200.png" />ㅤiTunes 12.1.3.6 다이렉트 다운로드</button><button style="border-radius: 8px; padding: 8px 14px; background-color: blue; color: white; border: none; margin: 10px; display: flex; justify-content: center;"><img src="https://st.transfer.it/images/favicons/favicon.ico" style="width:20px; height:20px;">ㅤ필요 파일 통합 백업 링크</button></div>
+        <span data-ke-size="size16"><span data-ke-size="size16"><br />자 그럼 이제 윈도우에 설치한다. 설치 후 iTunes를 켜면 이미 상위 버전을 설치한 적이 있다면 오류가 뜨고 안 켜지는 경우가 있다.<br /></span></span>[##_Image|kage@bOCJY8/dJMb9YJ101U/AAAAAAAAAAAAAAAAAAAAAChZ9lv-logHQ5f9INkX8F386y2pOCR2E6xVQ-i1azIJ/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1761922799&amp;allow_ip=&amp;allow_referer=&amp;signature=The3aFFTWluJa%2FCw9DnGlMiPfAU%3D|CDM|1.3|{"originWidth":662,"originHeight":169,"style":"alignCenter"}_##]<span data-ke-size="size16"><span data-ke-size="size16"><br />이 문제는 <b>음악</b>폴더에 <b>iTunes</b>라는 폴더를 들어가면 <b>iTunes Library.itl</b>라는 파일이 보인다. 음악이나 팟캐스트를 다운로드 받아놨다면 그 파일만 지우면 된다. 나는 그냥 iTunes폴더를 통째로 지웠다.<br /></span></span>[##_Image|kage@3n1sG/dJMb9MbP7V2/AAAAAAAAAAAAAAAAAAAAACu8O07Fv0Lhe1fb-9RNM_ZQYCCw_qsp2lidU-7iFM66/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1761922799&amp;allow_ip=&amp;allow_referer=&amp;signature=eeW7QUVqs9NK5Gem2q8ZNM%2FEVPo%3D|CDM|1.3|{"originWidth":265,"originHeight":231,"style":"alignCenter"}_##]<span data-ke-size="size16"><span data-ke-size="size16"><br />이제 다시 iTunes를 키면 잘 켜진다.<br /><br /><br />이제는 로그인을 해보겠다.<br /></span></span>[##_Image|kage@eNeJPy/dJMb9NIAINW/AAAAAAAAAAAAAAAAAAAAALEAe5537D576EmYzpT-M5Lq8AiQkQTqrIlLmXgG9GQ6/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1761922799&amp;allow_ip=&amp;allow_referer=&amp;signature=UFUnTEefS6Y8QWHW5nLB6OvyjkQ%3D|CDM|1.3|{"originWidth":1100,"originHeight":724,"style":"alignCenter"}_##]<span data-ke-size="size16"><span data-ke-size="size16"><br />사람 모양을 누르면 로그인 창이 뜬다. 우선 이메일과 비밀번호를 넣어보자. 그러면 애플 기기에 2차인증 메세지가 온다. 여기서 문제가 생긴다. iTunes가 구버전이라서 2차 인증하는게 나오지 않는다.<br /></span></span>[##_Image|kage@cNMXEL/dJMb9V7BFzd/AAAAAAAAAAAAAAAAAAAAANeruT196DrNIxXx--JsW8ZPZwKUzalFc2a5olYjXFAE/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1761922799&amp;allow_ip=&amp;allow_referer=&amp;signature=M6tXIgUj1Vp3FSwUUoWXy%2BQF0is%3D|CDM|1.3|{"originWidth":1688,"originHeight":770,"style":"alignCenter"}_##]<span data-ke-size="size16"><span data-ke-size="size16"><br /><b>2차 인증 메세지가 오면 인증 코드를 띄워두고 넘기지 않는다.</b> 이제 다시 iTunes로 들어가서 이메일과 비번을 넣는다.<br /></span></span>[##_Image|kage@UmS6K/dJMb9NIAINX/AAAAAAAAAAAAAAAAAAAAAFagJ14TWusVAkaD2U-sqV5bsxlcQGNHQt5LVwIRgRH7/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1761922799&amp;allow_ip=&amp;allow_referer=&amp;signature=goBezePEFLfkK2JI1uizG1%2FJVZM%3D|CDM|1.3|{"originWidth":1100,"originHeight":724,"style":"alignCenter"}_##]<span data-ke-size="size16"><br />그러나 이번엔 바로 로그인 버튼을 누르지 않고 <b>비밀번호칸에 비밀번호 바로 뒤에 인증번호를 넣는다.</b> 그리고 로그인 하면 2차인증이 되면서 로그인에 성공한다.</span>
+      </section>
+      <section id="feature-b" aria-label="특징 B">
+        <h4 data-ke-size="size20">2.2 Fiddler 다운로드와 기본 세팅</h4>
+        <span data-ke-size="size16"><span data-ke-size="size16">이번엔 <a href="https://www.telerik.com/download/fiddler">Fiddler 공식 다운로드 사이트로 간다.</a><br /></span></span>[##_Image|kage@Dm0WY/dJMb9PTWrD8/AAAAAAAAAAAAAAAAAAAAAFvAS3vbcVTTyLm2GZ3CQeHH3eTt_DBX9yasJZzXkQ64/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1761922799&amp;allow_ip=&amp;allow_referer=&amp;signature=PcKSI0FW7FxAlRt%2FizM1%2BlrX2Qc%3D|CDM|1.3|{"originWidth":1199,"originHeight":1005,"style":"alignCenter"}_##]<span data-ke-size="size16"><span data-ke-size="size16"><br />아무 정보나 넣고 파일을 다운받는다. 아니면 밑에 버튼을 눌러도 된다.(다이렉트 다운로드 버튼은 다음 버전이 나오면 동작하지 않을 수도 있다. 그러면 귀찮지만 아무 정보나 넣고 다운로드 하든지 아니면 필자가 받은 파일인 파일 백업을 링크에서 받으면 된다)<br /><br /></span></span>
+        <div style="display: flex; justify-content: center; border: 2px solid; border-radius: 5px; padding: 5px;"><button onclick="location.href='https://downloads.getfiddler.com/fiddler-classic/FiddlerSetup.5.0.20253.3311-latest.exe'" style="border-radius: 8px; padding: 8px 14px; background-color: blue; color: white; border: none; margin: 10px; display: flex; justify-content: center;"><img style="width: 17px; height: 17px;" src="https://www.telerik.com/favicon.ico" />ㅤFiddler 다이렉트 다운로드</button><button onclick="location.href=''" style="border-radius: 8px; padding: 8px 14px; background-color: blue; color: white; border: none; margin: 10px; display: flex; justify-content: center;"><img src="https://st.transfer.it/images/favicons/favicon.ico" style="width:20px; height:20px;">ㅤ필요 파일 통합 백업 링크</button></div>
+      </section>
+      <section id="feature-c" aria-label="특징 C">
+        <h4 data-ke-size="size20">2.3 카카오톡 옛버전 IPA 다운로드하기</h4>
+        <p data-ke-size="size16">특징 B에 대한 상세 설명.</p>
+      </section>
+    </section>
+    <section id="features2">
+      <h3 data-ke-size="size23">3. Windows에서 MacOS사용하기(최신 버전의 Mac이 있으면 건너뛰세요)</h3>
+      <p data-ke-size="size16">특징 전체 설명.</p>
+      <section id="feature-d" aria-label="특징 D">
+        <h4 data-ke-size="size20">3.1 특징 A</h4>
+        <p data-ke-size="size16">특징 A에 대한 상세 설명.</p>
+      </section>
+      <section id="feature-e" aria-label="특징 E">
+        <h4 data-ke-size="size20">3.2 특징 B</h4>
+        <p data-ke-size="size16">특징 B에 대한 상세 설명.</p>
+      </section>
+    </section>
+    <section id="usage">
+      <h3 data-ke-size="size23">4. 설치와 마무리 과정</h3>
+      <p data-ke-size="size16">깔려는 카카오톡 버전보다 높은 버전의 카카오톡이 설치된 iPhone을 케이블로 컴퓨터와 연결합니다.<br />[##_Image|kage@kL9xK/dJMb9N9Fi2i/AAAAAAAAAAAAAAAAAAAAABRCoSQJ3LZBTiWgESHy_Ut1MuHo8fDqrsFvSAu0wiHm/img.png|alignCenter|width="100%"|_##]<br />그리고 VMware 안에 연결시킵니다.(자동으로 VMware에서 USB가 감지되면 뭐가 뜨는데 잘 모르겠으면 확인이나 X를 눌러 닫으시면 됩니다.) iPhone에 뜨는 컴퓨터 신뢰에서는 신뢰를 누르고 암호를 입력하면 됩니다.<br />[##_Image|kage@dJTBrl/dJMb9L44FRl/AAAAAAAAAAAAAAAAAAAAAEsebESIRiJBBp2IBrNxH2JQQnCk9PuBuLLxB9GESLgI/img.png|alignCenter|width="100%"|_##]<br />Apple Configurator를 켜고 감지된 자신의 iPhone을 선택합니다.<br />[##_Image|kage@ClbbQ/dJMb84DuXjm/AAAAAAAAAAAAAAAAAAAAAMkHf8HHc_703BOHx5uYasAPZkE1wOKYU1TWoZ2G3_Nv/img.png|alignCenter|width="100%"|_##]<br />앱을 누르면 iPhone에 설치된 앱들이 주르륵 나옵니다. 이제 파일을 Apple Configurator 안으로 끌어다 놓으면 설치가 시작됩니다.<br />[##_Image|kage@Mx83N/dJMb9O8zpK3/AAAAAAAAAAAAAAAAAAAAAJXtqJFZ74M09B_m0fgmn3TToxzNAekoxqNy1uaS6Ruw/img.png|alignCenter|width="100%"|_##]<br />설치를 시작하면 앱이 이미 있다고 뜹니다. <b>대치</b>를 누릅니다.<br />[##_Image|kage@wgC7F/dJMb9NV7OBF/AAAAAAAAAAAAAAAAAAAAAKOb45_Lfo440E1SILNP5DyOhSZvfwWndTP0--7zm2zd/img.png|alignCenter|width="100%"|_##]<br />이제 카톡 파일이 iPhone으로 전송됩니다.<br /><br />작업이 모두 끝나면 iPhone에서 카카오톡이 업데이트하는 것처럼 아이콘이 뜨게 됩니다.<br />이제 카카오톡을 켜보면 업데이트 도중 </p>
+    </section>
+    <section id="references">
+      <h3 data-ke-size="size23">5. 파일 다운로드</h3>
+      <ul style="list-style-type: disc;" data-ke-list-type="disc">
+        <li><a href="https://ko.wikipedia.org" target="_blank" rel="noopener">귀찮을 여러분들을 위해서 필자가 받은 파일들 모음. 이거 다운로드 받으시면 바로 3번으로 건너뛰시면 됩니다. 과정 그대로 해서 <b>받은거 그대로 올린겁니다.</b> 불안하시면 직접 받으세요.</a></li>
+        <li><a href="https://namu.wiki" target="_blank" rel="noopener">나무위키</a></li>
+      </ul>
+    </section>
+    <section id="faq">
+      <h3 data-ke-size="size23">6. FAQ</h3>
+      <p data-ke-size="size16">Q1.업데이트 되나요?<br />A1.앱스토어에서 바로 됩니다. 직접 업데이트 시도도 해 보았으나 일반적인 앱 업데이트와 똑같이 잘 작동합니다.<s>(그야 순정 카카오톡 파일이니까...)</s><br /><br />Q2.오픈채팅방 유지는 되나요?<br />A2.유지는 됩니다만 메시지 보내기가 안되고 계속 최신버전에서만 된다고 알림이 뜹니다. 읽을 수는 있습니다.<br /><br />Q3.7일 서명 얘기가 있던데 어떻게 되는건가요?<br />A3.직접 7일 이상 써보았으나 문제 없습니다. 제 예상으로는 기존 설치된 앱에 정식 서명이 있고 카톡 파일만 교체한 것이라 되는것으로 보입니다.(업데이트 처럼 파일만 올리는 방식)  다시 말해 사이드로딩(Sideloading) 방식과 달리 계속 사용 가능합니다.<br /><br />Q4.카카오톡 인증서 되나요?<br />A4.네.저도 인증서 잘 쓰고 있습니다. 카카오톡 송금도 잘 됩니다.<br /><br />Q5.약관위반 아닌가요?<br />A5.우선 모든 행위는 본인의 책임입니다. 클라이언트 변조나 우회가 아니라 앱스토어에 심사되서 서명돼서 올라간 정식 파일을 그대로 설치하는 것이기에 약관 위반은 아닌것으로 보입니다. iTunes로 받고 IPA를 수정없이 올렸지만 그래도 불안하시거나 못 믿으시겠다면 방법도 적혀있으니 직접 다운로드 하시면 됩니다.<br /><br />Q6.3utools,Imazing으로 하려면 어떻게 해야 하나요?<br />A6.저는 서드파티 프로그램으로 설치해보지 않았으니 저한테 물어보셔도 모릅니다. 제 방식대로 따라하시다가 모르시는 부분은 댓글 남겨주시면 알려드리겠습니다.</p>
+      <a class="back-to-toc" href="#top">🔝 목차로 돌아가기</a></section>
+      <!-- top 앵커 (목차로 돌아가기용) -->
+      <a id="top" style="position:absolute;left:0;top:0;"></a>
+      <p data-ke-size="size16">&nbsp;</p>
+    </section>
+  </body>
+</html>
